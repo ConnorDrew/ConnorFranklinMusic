@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +8,7 @@
 <meta name="description" content="Connor Franklin is an acoustic singer performing live music for pubs, weddings, private parties and special events. Follow on TikTok and Instagram or get in touch to book.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://www.connorfranklinmusic.co.uk/">
-<meta name="theme-color" content="#0b0b0f">
+<meta name="theme-color" content="#efe8d8">
 
 <link rel="icon" href="img/avatar.jpg" type="image/jpeg">
 <link rel="apple-touch-icon" href="img/avatar.jpg">
@@ -33,7 +33,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
 <script type="application/ld+json">
 {
@@ -52,167 +52,129 @@
 
 <style>
   :root{
-    --bg-0:#0b0b0f;
-    --bg-1:#131319;
+    --paper:#efe8d8;
+    --ink:#141210;
     --accent:#e8443c;
-    --accent-soft:rgba(232,68,60,0.18);
-    --text-0:#f5f4f2;
-    --text-1:#a8a7ad;
-    --card-border:rgba(255,255,255,0.09);
+    --accent-deep:#cf3a33;
+    --wall:#1b1916;
   }
   *{box-sizing:border-box;}
-  html,body{height:100%;}
   body{
     margin:0;
     min-height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
-    background:
-      radial-gradient(circle at 15% 20%, rgba(232,68,60,0.16), transparent 45%),
-      radial-gradient(circle at 85% 80%, rgba(120,90,255,0.14), transparent 50%),
-      linear-gradient(180deg, var(--bg-0), var(--bg-1));
-    color:var(--text-0);
-    padding:32px 20px;
-    overflow-x:hidden;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Space Mono',ui-monospace,Menlo,Consolas,monospace;
   }
-  .noise{
-    position:fixed;
-    inset:0;
-    pointer-events:none;
-    opacity:0.035;
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-    z-index:0;
-  }
-  .glow{
-    position:fixed;
-    width:520px;
-    height:520px;
-    border-radius:50%;
-    background:radial-gradient(circle, var(--accent-soft), transparent 70%);
-    filter:blur(10px);
-    top:-160px;
-    right:-160px;
-    animation:drift 14s ease-in-out infinite alternate;
-    z-index:0;
-  }
-  @keyframes drift{
-    from{transform:translate(0,0) scale(1);}
-    to{transform:translate(-40px,60px) scale(1.15);}
-  }
-  .card{
-    position:relative;
-    z-index:1;
+  .poster{
     width:100%;
-    max-width:420px;
-    background:rgba(255,255,255,0.03);
-    border:1px solid var(--card-border);
-    border-radius:24px;
-    padding:44px 32px 36px;
-    backdrop-filter:blur(18px);
-    -webkit-backdrop-filter:blur(18px);
-    box-shadow:0 30px 60px -20px rgba(0,0,0,0.6);
-    text-align:center;
-    animation:rise 0.7s cubic-bezier(0.16,1,0.3,1) both;
-  }
-  @keyframes rise{
-    from{opacity:0; transform:translateY(18px);}
-    to{opacity:1; transform:translateY(0);}
-  }
-  .avatar{
-    width:104px;
-    height:104px;
-    margin:0 auto 22px;
-    border-radius:50%;
-    overflow:hidden;
-    box-shadow:0 0 0 4px rgba(255,255,255,0.08), 0 12px 30px -8px rgba(232,68,60,0.5);
-  }
-  .avatar img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    display:block;
-  }
-  h1{
-    font-size:26px;
-    font-weight:700;
-    margin:0 0 6px;
-    letter-spacing:-0.02em;
-  }
-  .tagline{
-    color:var(--text-1);
-    font-size:14.5px;
-    margin:0 0 30px;
-    line-height:1.5;
-  }
-  .badge{
-    display:inline-flex;
-    align-items:center;
-    gap:6px;
-    font-size:11.5px;
-    text-transform:uppercase;
-    letter-spacing:0.09em;
-    color:var(--accent);
-    background:var(--accent-soft);
-    border:1px solid rgba(232,68,60,0.3);
-    padding:6px 14px;
-    border-radius:999px;
-    margin-bottom:22px;
-  }
-  .badge svg{width:11px;height:11px;}
-  .links{
+    max-width:440px;
+    margin:0 auto;
+    padding:20px;
     display:flex;
     flex-direction:column;
     gap:12px;
+    background:var(--paper);
   }
-  .link{
+  @media (min-width:600px){
+    body{
+      background:var(--wall);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:48px 24px;
+    }
+    .poster{padding:22px;box-shadow:0 18px 50px rgba(0,0,0,0.5);}
+  }
+  .topbar{
     display:flex;
+    justify-content:space-between;
     align-items:center;
-    gap:14px;
-    padding:15px 18px;
-    border-radius:14px;
-    background:rgba(255,255,255,0.035);
-    border:1px solid var(--card-border);
-    color:var(--text-0);
-    text-decoration:none;
-    text-align:left;
-    transition:transform 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+    gap:12px;
+    border-bottom:3px solid var(--ink);
+    padding-bottom:8px;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+  }
+  h1{
+    margin:0;
+    font-family:'Anton',Impact,'Arial Narrow',sans-serif;
+    font-weight:400;
+    font-size:clamp(64px,23.5vw,104px);
+    line-height:0.86;
+    letter-spacing:-0.01em;
+    text-transform:uppercase;
+  }
+  h1 span{color:var(--accent);}
+  .photo{
     position:relative;
+    aspect-ratio:4/3;
+    border:3px solid var(--ink);
+    background:var(--ink);
     overflow:hidden;
+    margin:0;
   }
-  .link:hover{
-    transform:translateY(-2px);
-    background:rgba(255,255,255,0.07);
-    border-color:rgba(255,255,255,0.18);
+  .photo img{width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block;}
+  .photo figcaption{
+    position:absolute;
+    left:12px;
+    bottom:14px;
+    background:var(--ink);
+    color:var(--paper);
+    padding:6px 10px;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    transform:rotate(-3deg);
   }
-  .link:active{transform:translateY(0);}
-  .icon{
-    width:38px;
-    height:38px;
-    min-width:38px;
-    border-radius:10px;
+  .tagline{margin:0;font-size:12.5px;line-height:1.5;}
+  .rows{display:flex;flex-direction:column;border-bottom:3px solid var(--ink);}
+  .row{
     display:flex;
     align-items:center;
-    justify-content:center;
-    background:rgba(255,255,255,0.06);
+    gap:12px;
+    width:100%;
+    min-height:52px;
+    padding:0;
+    border:0;
+    border-top:3px solid var(--ink);
+    background:none;
+    color:var(--ink);
+    font:inherit;
+    text-align:left;
+    cursor:pointer;
+    appearance:none;
+    -webkit-appearance:none;
   }
-  .icon svg{width:19px;height:19px;fill:var(--text-0);}
-  .link-text{flex:1;min-width:0;}
-  .link-title{font-size:14.5px;font-weight:600;margin:0;}
-  .link-sub{font-size:12.5px;color:var(--text-1);margin:2px 0 0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-  .arrow{color:var(--text-1);flex-shrink:0;}
-  .link.tiktok .icon{background:linear-gradient(135deg, rgba(37,244,238,0.18), rgba(254,44,85,0.18));}
-  .link.instagram .icon{background:linear-gradient(135deg, rgba(240,148,51,0.22), rgba(220,39,150,0.22));}
-  .link.email .icon{background:rgba(232,68,60,0.16);}
-  button.link{font:inherit;cursor:pointer;width:100%;appearance:none;-webkit-appearance:none;}
-  footer{
-    margin-top:28px;
-    font-size:12px;
-    color:var(--text-1);
-    letter-spacing:0.02em;
+  .row-n{font-size:11px;font-weight:700;}
+  .row-title{font-family:'Anton',Impact,'Arial Narrow',sans-serif;font-size:26px;text-transform:uppercase;flex-grow:1;}
+  .row-sub{font-size:11px;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .row-arrow{font-size:18px;transition:transform 0.18s ease;}
+  .row:hover .row-arrow{transform:translateX(4px);}
+  .book{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    min-height:64px;
+    padding:0 18px;
+    background:var(--accent);
+    color:#fff;
+    font-family:'Anton',Impact,'Arial Narrow',sans-serif;
+    font-size:30px;
+    text-transform:uppercase;
+    letter-spacing:0.01em;
+    text-decoration:none;
+    transition:background 0.18s ease;
   }
+  .book:hover{background:var(--accent-deep);}
+  .book .row-arrow{font-size:inherit;}
+  .book:hover .row-arrow{transform:translateX(4px);}
+  footer{margin:0;font-size:10.5px;letter-spacing:0.04em;}
   footer a{color:inherit;text-underline-offset:3px;}
+  :focus-visible{outline:3px solid var(--accent);outline-offset:3px;}
   body.modal-open{overflow:hidden;}
   .modal-overlay{
     position:fixed;
@@ -222,9 +184,7 @@
     align-items:center;
     justify-content:center;
     padding:24px 16px;
-    background:rgba(0,0,0,0.7);
-    backdrop-filter:blur(6px);
-    -webkit-backdrop-filter:blur(6px);
+    background:rgba(20,18,16,0.8);
     opacity:0;
     visibility:hidden;
     transition:opacity 0.25s ease, visibility 0.25s ease;
@@ -236,116 +196,98 @@
     max-width:600px;
     max-height:88vh;
     overflow-y:auto;
-    background:var(--bg-1);
-    border:1px solid var(--card-border);
-    border-radius:20px;
-    padding:26px 22px 24px;
-    box-shadow:0 30px 60px -20px rgba(0,0,0,0.7);
-    transform:translateY(14px) scale(0.98);
+    background:var(--paper);
+    color:var(--ink);
+    border:3px solid var(--ink);
+    padding:22px 20px;
+    box-shadow:0 18px 50px rgba(0,0,0,0.5);
+    transform:translateY(14px);
     transition:transform 0.25s cubic-bezier(0.16,1,0.3,1);
   }
-  .modal-overlay.open .modal{transform:translateY(0) scale(1);}
+  .modal-overlay.open .modal{transform:translateY(0);}
   .modal-header{
     display:flex;
     align-items:center;
     justify-content:space-between;
+    border-bottom:3px solid var(--ink);
+    padding-bottom:10px;
     margin-bottom:16px;
   }
-  .modal-header h2{font-size:17px;margin:0;font-weight:700;}
+  .modal-header h2{font-family:'Anton',Impact,'Arial Narrow',sans-serif;font-weight:400;font-size:26px;text-transform:uppercase;margin:0;}
   .modal-close{
-    width:32px;
-    height:32px;
-    border-radius:50%;
+    width:44px;
+    height:44px;
     display:flex;
     align-items:center;
     justify-content:center;
-    background:rgba(255,255,255,0.06);
-    border:1px solid var(--card-border);
-    color:var(--text-0);
+    background:none;
+    border:3px solid var(--ink);
+    color:var(--ink);
     cursor:pointer;
     flex-shrink:0;
   }
-  .modal-close:hover{background:rgba(255,255,255,0.12);}
-  .tiktok-videos{
+  .modal-close:hover{background:var(--ink);color:var(--paper);}
+  .tiktok-videos,.instagram-videos{
     display:flex;
     gap:14px;
     overflow-x:auto;
     padding-bottom:6px;
     scroll-snap-type:x mandatory;
   }
-  .tiktok-videos > blockquote{scroll-snap-align:center;flex-shrink:0;margin:0 !important;}
-  .instagram-videos{
-    display:flex;
-    gap:14px;
-    overflow-x:auto;
-    padding-bottom:6px;
-    scroll-snap-type:x mandatory;
-  }
-  .instagram-videos > blockquote{scroll-snap-align:center;flex-shrink:0;margin:0 !important;}
+  .tiktok-videos > blockquote,.instagram-videos > blockquote{scroll-snap-align:center;flex-shrink:0;margin:0 !important;}
   .modal-more{
     display:inline-flex;
     align-items:center;
     gap:6px;
     margin-top:18px;
-    font-size:13.5px;
-    font-weight:600;
-    color:var(--text-0);
-    text-decoration:none;
+    font-size:13px;
+    font-weight:700;
+    color:var(--ink);
+    text-decoration:underline;
+    text-underline-offset:3px;
   }
-  .modal-more:hover{text-decoration:underline;}
+  @media (prefers-reduced-motion:reduce){
+    .row-arrow,.book,.modal-overlay,.modal{transition:none;}
+  }
 </style>
 </head>
 <body>
-  <div class="noise"></div>
-  <div class="glow"></div>
-
-  <div class="card">
-    <div class="avatar"><img src="img/avatar.jpg" alt="Connor Franklin" width="104" height="104" loading="eager" decoding="async" fetchpriority="high"></div>
-    <h1>Connor Franklin</h1>
-    <p class="tagline">Acoustic Singer<br>Live acoustic music for pubs, weddings, private parties and special events.</p>
-
-    <span class="badge">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-      New content daily
-    </span>
-
-    <div class="links">
-      <button type="button" class="link tiktok" id="tiktokTrigger" aria-haspopup="dialog" aria-controls="tiktokModal">
-        <div class="icon">
-          <svg viewBox="0 0 24 24"><path d="M16.6 5.82s.51.5 0 0A4.278 4.278 0 0 1 15.54 3h-3.09v12.4a2.592 2.592 0 0 1-2.59 2.5c-1.42 0-2.6-1.16-2.6-2.6 0-1.72 1.66-3.01 3.37-2.48V9.66c-3.45-.46-6.47 2.22-6.47 5.64 0 3.33 2.76 5.7 5.69 5.7 3.14 0 5.69-2.55 5.69-5.7V9.01a7.35 7.35 0 0 0 4.31 1.38V7.3s-1.88.09-3.24-1.48z"/></svg>
-        </div>
-        <div class="link-text">
-          <p class="link-title">TikTok</p>
-          <p class="link-sub">@connordrew_</p>
-        </div>
-        <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
-      </button>
-
-      <button type="button" class="link instagram" id="instagramTrigger" aria-haspopup="dialog" aria-controls="instagramModal">
-        <div class="icon">
-          <svg viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.72 3.72 0 0 1-1.38-.9 3.72 3.72 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07c-1.28.06-2.15.26-2.91.56a5.9 5.9 0 0 0-2.13 1.39A5.9 5.9 0 0 0 .62 4.15c-.3.76-.5 1.63-.56 2.91C0 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.28.26 2.15.56 2.91.3.79.71 1.47 1.38 2.13.66.67 1.34 1.08 2.13 1.38.76.3 1.63.5 2.91.56C8.33 24 8.74 24 12 24s3.67-.01 4.95-.07c1.28-.06 2.15-.26 2.91-.56a5.9 5.9 0 0 0 2.13-1.38 5.9 5.9 0 0 0 1.38-2.13c.3-.76.5-1.63.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.28-.26-2.15-.56-2.91a5.9 5.9 0 0 0-1.38-2.13A5.9 5.9 0 0 0 19.86.63c-.76-.3-1.63-.5-2.91-.56C15.67.01 15.26 0 12 0Zm0 5.84A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84Zm0 10.16A4 4 0 1 1 16 12a4 4 0 0 1-4 4Zm6.41-10.4a1.44 1.44 0 1 1-1.44-1.44 1.44 1.44 0 0 1 1.44 1.44Z"/></svg>
-        </div>
-        <div class="link-text">
-          <p class="link-title">Instagram</p>
-          <p class="link-sub">@connorfranklinmusic</p>
-        </div>
-        <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
-      </button>
-
-      <a class="link email" href="mailto:connorfranklinmusic@gmail.com?subject=Booking%20Enquiry&body=Hi%20Connor%2C%0D%0A%0D%0AI%27d%20like%20to%20enquire%20about%20booking%20you%20for%20an%20event.%0D%0A%0D%0ADate%3A%20%0D%0ALocation%3A%20%0D%0AEvent%20type%3A%20%0D%0A%0D%0AThanks!">
-        <div class="icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="M3 6.5l9 6.5 9-6.5"/></svg>
-        </div>
-        <div class="link-text">
-          <p class="link-title">Bookings</p>
-          <p class="link-sub">connorfranklinmusic@gmail.com</p>
-        </div>
-        <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
-      </a>
+  <main class="poster">
+    <div class="topbar">
+      <span>Live · Acoustic</span>
+      <span>New content daily</span>
     </div>
 
+    <h1>Connor<br><span>Franklin</span></h1>
+
+    <figure class="photo">
+      <img src="img/avatar.jpg" alt="Connor Franklin performing live" width="480" height="480" loading="eager" decoding="async" fetchpriority="high">
+      <figcaption>Acoustic singer</figcaption>
+    </figure>
+
+    <p class="tagline">Live acoustic music for pubs, weddings, private parties and special events.</p>
+
+    <nav class="rows" aria-label="Watch">
+      <button type="button" class="row" id="tiktokTrigger" aria-haspopup="dialog" aria-controls="tiktokModal">
+        <span class="row-n">01</span>
+        <span class="row-title">TikTok</span>
+        <span class="row-sub">@connordrew_</span>
+        <span class="row-arrow" aria-hidden="true">→</span>
+      </button>
+      <button type="button" class="row" id="instagramTrigger" aria-haspopup="dialog" aria-controls="instagramModal">
+        <span class="row-n">02</span>
+        <span class="row-title">Instagram</span>
+        <span class="row-sub">@connorfranklinmusic</span>
+        <span class="row-arrow" aria-hidden="true">→</span>
+      </button>
+    </nav>
+
+    <a class="book" href="mailto:connorfranklinmusic@gmail.com?subject=Booking%20Enquiry&body=Hi%20Connor%2C%0D%0A%0D%0AI%27d%20like%20to%20enquire%20about%20booking%20you%20for%20an%20event.%0D%0A%0D%0ADate%3A%20%0D%0ALocation%3A%20%0D%0AEvent%20type%3A%20%0D%0A%0D%0AThanks!">
+      <span>Book Connor</span><span class="row-arrow" aria-hidden="true">→</span>
+    </a>
+
     <footer>&copy; 2026 Connor Franklin · <a href="https://drewframe.co.uk/web-design-rugeley/">Website by Drewframe</a></footer>
-  </div>
+  </main>
 
   <div class="modal-overlay" id="tiktokModal" role="dialog" aria-modal="true" aria-labelledby="tiktokModalTitle">
     <div class="modal">
