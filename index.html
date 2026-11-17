@@ -253,6 +253,40 @@
     text-decoration:underline;
     text-underline-offset:3px;
   }
+  /* Booking form */
+  .modal--book{max-width:460px;}
+  .bform{display:flex;flex-direction:column;gap:12px;}
+  .bfield{display:flex;flex-direction:column;gap:5px;min-width:0;}
+  .bfield > span{font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;}
+  .bfield em{font-style:normal;font-weight:400;text-transform:none;letter-spacing:0;opacity:0.7;}
+  .bfield input,.bfield select,.bfield textarea{
+    width:100%;
+    min-height:46px;
+    padding:10px 12px;
+    border:3px solid var(--ink);
+    border-radius:0;
+    background:#fffdf7;
+    color:var(--ink);
+    font:inherit;
+    font-size:16px;
+    appearance:none;
+    -webkit-appearance:none;
+  }
+  .bfield select{background-image:linear-gradient(45deg,transparent 50%,var(--ink) 50%),linear-gradient(135deg,var(--ink) 50%,transparent 50%);background-position:calc(100% - 18px) 50%,calc(100% - 12px) 50%;background-size:6px 6px;background-repeat:no-repeat;padding-right:30px;}
+  .bfield textarea{resize:vertical;min-height:96px;}
+  .bfield input:focus,.bfield select:focus,.bfield textarea:focus{outline:3px solid var(--accent);outline-offset:0;}
+  .bpair{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .bhp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;}
+  .bsubmit{width:100%;border:0;cursor:pointer;margin-top:4px;}
+  .bsubmit[disabled]{opacity:0.6;cursor:progress;}
+  .bstatus{margin:0;font-size:13px;line-height:1.5;}
+  .bstatus:empty{display:none;}
+  .bstatus a{color:inherit;font-weight:700;text-underline-offset:3px;}
+  .bnote{margin:0;font-size:11px;line-height:1.5;opacity:0.7;}
+  .bdone{font-size:14px;line-height:1.55;outline:none;}
+  .bdone p{margin:0 0 10px;}
+  .bdone-title{font-family:'Anton',Impact,'Arial Narrow',sans-serif;font-size:30px;text-transform:uppercase;line-height:1.05;}
+  .bdone a{color:inherit;font-weight:700;text-underline-offset:3px;}
   @media (prefers-reduced-motion:reduce){
     .row-arrow,.book,.modal-overlay,.modal{transition:none;}
   }
@@ -289,7 +323,7 @@
       </button>
     </nav>
 
-    <a class="book" href="mailto:connorfranklinmusic@gmail.com?subject=Booking%20Enquiry&body=Hi%20Connor%2C%0D%0A%0D%0AI%27d%20like%20to%20enquire%20about%20booking%20you%20for%20an%20event.%0D%0A%0D%0ADate%3A%20%0D%0ALocation%3A%20%0D%0AEvent%20type%3A%20%0D%0A%0D%0AThanks!">
+    <a class="book" id="bookTrigger" aria-haspopup="dialog" aria-controls="bookModal" href="mailto:connorfranklinmusic@gmail.com?subject=Booking%20Enquiry&body=Hi%20Connor%2C%0D%0A%0D%0AI%27d%20like%20to%20enquire%20about%20booking%20you%20for%20an%20event.%0D%0A%0D%0ADate%3A%20%0D%0ALocation%3A%20%0D%0AEvent%20type%3A%20%0D%0A%0D%0AThanks!">
       <span>Book Connor</span><span class="row-arrow" aria-hidden="true">→</span>
     </a>
     <a class="book book--wa" href="https://wa.me/447960211335?text=Hi%20Connor%2C%20I%27d%20like%20to%20enquire%20about%20booking%20you%20for%20an%20event.%0A%0ADate%3A%20%0ALocation%3A%20%0AEvent%20type%3A%20" target="_blank" rel="noopener" aria-label="Book Connor on WhatsApp (opens WhatsApp)">
@@ -301,6 +335,45 @@
       <p class="privacy-note">No cookies. Page views and taps on the booking links are counted anonymously, with nothing stored on your device.</p>
     </footer>
   </main>
+
+  <div class="modal-overlay" id="bookModal" role="dialog" aria-modal="true" aria-labelledby="bookModalTitle">
+    <div class="modal modal--book">
+      <div class="modal-header">
+        <h2 id="bookModalTitle">Book Connor</h2>
+        <button type="button" class="modal-close" id="bookModalClose" aria-label="Close">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+      </div>
+      <form class="bform" id="bookForm" action="/api/enquiry" method="post">
+        <label class="bfield"><span>Your name</span><input name="name" type="text" autocomplete="name" maxlength="100" required></label>
+        <label class="bfield"><span>Email</span><input name="email" type="email" autocomplete="email" inputmode="email" maxlength="200" required></label>
+        <label class="bfield"><span>Phone <em>(optional)</em></span><input name="phone" type="tel" autocomplete="tel" maxlength="25"></label>
+        <div class="bpair">
+          <label class="bfield"><span>Date</span><input name="date" type="date"></label>
+          <label class="bfield"><span>Event</span>
+            <select name="type">
+              <option value="">Choose…</option>
+              <option>Pub or bar</option>
+              <option>Wedding</option>
+              <option>Private party</option>
+              <option>Corporate event</option>
+              <option>Other</option>
+            </select>
+          </label>
+        </div>
+        <label class="bfield"><span>Venue / town</span><input name="location" type="text" maxlength="150"></label>
+        <label class="bfield"><span>Anything else? <em>(times, set length, songs)</em></span><textarea name="message" rows="4" maxlength="3000"></textarea></label>
+        <label class="bhp" aria-hidden="true">Leave this empty <input name="website" type="text" tabindex="-1" autocomplete="off"></label>
+        <button type="submit" class="book bsubmit"><span>Send enquiry</span><span class="row-arrow" aria-hidden="true">→</span></button>
+        <p class="bstatus" id="bookStatus" role="status" aria-live="polite"></p>
+        <p class="bnote">Your details go straight to Connor by email so he can reply. They aren't stored on this website.</p>
+      </form>
+      <div class="bdone" id="bookDone" hidden tabindex="-1">
+        <p class="bdone-title">Thanks, that's sent.</p>
+        <p>Connor will get back to you soon. If you haven't heard back in a couple of days, give him a nudge on <a href="https://wa.me/447960211335" target="_blank" rel="noopener">WhatsApp</a>.</p>
+      </div>
+    </div>
+  </div>
 
   <div class="modal-overlay" id="tiktokModal" role="dialog" aria-modal="true" aria-labelledby="tiktokModalTitle">
     <div class="modal">
