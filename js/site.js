@@ -135,6 +135,15 @@
   function countView(){
     try{
       if(navigator.webdriver) return;
+      // ?pulse=off on any page: this browser's visits aren't counted from now on (the owner
+      // checking their own site). ?pulse=on undoes it. Only then is anything stored.
+      var choice = new URLSearchParams(location.search).get('pulse');
+      if (choice === 'off' || choice === 'on') {
+        try { if (choice === 'off') localStorage.setItem('pulse-off', '1'); else localStorage.removeItem('pulse-off'); } catch (e) {}
+        alert(choice === 'off' ? 'Done. Visits from this browser will not be counted in the website stats.' : 'Visits from this browser will be counted again.');
+        return;
+      }
+      try { if (localStorage.getItem('pulse-off')) return; } catch (e) {}
       var nav = performance.getEntriesByType('navigation')[0];
       var visit = !nav || nav.type === 'navigate';
       var ref = '';
